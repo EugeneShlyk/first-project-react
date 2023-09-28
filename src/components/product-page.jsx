@@ -1,4 +1,6 @@
 import React from "react";
+import Comments from './comments';
+import Popularity from './popularity';
 import Title from "./title.jsx";
 import Code from "./code.jsx";
 import Gallery from "./gallery.jsx";
@@ -29,14 +31,14 @@ function ProductPage ({ product }) {
           </p>
 
           <button>Купить</button>
+
+          <Popularity count={product.comments.length} />
         </div>
       </div>
 
       <Description text={product.description} />
 
-
-
-
+      <Comments comments={product.comments} />
     </section>
   )
 }

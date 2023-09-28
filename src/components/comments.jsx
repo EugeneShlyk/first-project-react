@@ -1,15 +1,17 @@
-import React from "react";
+import React from 'react';
 
-export default function Comments ({ comments }) {
+export default function Comments({ comments }) {
   return (
     <div>
       <h2>Комментарии</h2>
-
-      comments.map((comment) => {
-      <li key={comment.id}>
-
-      </li>
-    })
+      <ul>
+        {comments.map((comment) => (
+          <li key={comment.id}>
+            <b>{comment.author}</b>
+            <p>{comment.text}</p>
+          </li>
+        ))}
+      </ul>
     </div>
-  )
+  );
 }
