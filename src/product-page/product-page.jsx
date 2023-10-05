@@ -1,12 +1,12 @@
 import React from "react";
-import Comments from './comments';
-import Popularity from './popularity';
-import Title from "./title.jsx";
-import Code from "./code.jsx";
-import Gallery from "./gallery.jsx";
-import FullPrice from "./full-price.jsx";
-import Counter from "./counter.jsx";
-import Description from "./description";
+import Comments from '../comments/comments';
+import Popularity from '../old-price/popularity/popularity';
+import Title from "../title/title.jsx";
+import Code from "../code/code.jsx";
+import Gallery from "../gallery/gallery.jsx";
+import FullPrice from "../full-price/full-price.jsx";
+import Counter from "../counter/counter.jsx";
+import Description from "../description/description";
 
 
 function ProductPage ({ product }) {
