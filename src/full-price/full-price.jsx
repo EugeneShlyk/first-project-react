@@ -1,15 +1,15 @@
 import React from "react";
-import Price from "../price/price.jsx";
+import { InnerPrice, PriceWrapper } from './styled';
 import OldPrice from "../old-price/old-price";
 
 export default function FullPrice ({ price, oldPrice }) {
-  const showOldPrice = Boolean(oldPrice && oldPrice > price);
+  const showOldPrice = oldPrice && oldPrice > price;
 
   return (
-    <>
+    <PriceWrapper>
       {showOldPrice && <OldPrice value={oldPrice} />}
       {showOldPrice && " "}
-      <Price value={price}/>
-    </>
+      <InnerPrice value={price}/>
+    </PriceWrapper>
   );
 }

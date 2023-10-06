@@ -1,4 +1,5 @@
 import React from "react";
+import Button from '../button/button';
 
 export default function Description ({ text }) {
   return (
@@ -7,7 +8,7 @@ export default function Description ({ text }) {
 
       {text}
 
-      <button>Подробнее</button>
+      <Button>Подробнее</Button>
     </React.Fragment>
   )
 }

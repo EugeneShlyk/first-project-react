@@ -1,12 +1,13 @@
 import React from "react";
 import Comments from '../comments/comments';
-import Popularity from '../old-price/popularity/popularity';
+import Popularity from '../popularity/popularity';
 import Title from "../title/title.jsx";
 import Code from "../code/code.jsx";
 import Gallery from "../gallery/gallery.jsx";
 import FullPrice from "../full-price/full-price.jsx";
 import Counter from "../counter/counter.jsx";
 import Description from "../description/description";
+import Button from '../button/button';
 
 
 function ProductPage ({ product }) {
@@ -30,7 +31,7 @@ function ProductPage ({ product }) {
             <span>Доставка:</span> {product.delivery}
           </p>
 
-          <button>Купить</button>
+          <Button size="large">Купить</Button>
 
           <Popularity count={product.comments.length} />
         </div>

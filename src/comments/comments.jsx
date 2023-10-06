@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from '../button/button';
 
 export default function Comments({ comments }) {
   return (
@@ -12,6 +13,8 @@ export default function Comments({ comments }) {
           </li>
         ))}
       </ul>
+
+      <Button>Показать ещё</Button>
     </div>
   );
 }
