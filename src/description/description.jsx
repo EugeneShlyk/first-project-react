@@ -1,14 +1,13 @@
 import React from "react";
-import Button from '../button/button';
+import { DescriptionButton } from "./styled";
 
-export default function Description ({ text }) {
+function Description({ text }) {
   return (
-    <React.Fragment>
-      <h2>Описание</h2>
-
+    <>
       {text}
-
-      <Button>Подробнее</Button>
-    </React.Fragment>
-  )
+      <DescriptionButton>Подробнее</DescriptionButton>
+    </>
+  );
 }
+
+export default Description;

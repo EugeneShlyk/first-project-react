@@ -1,47 +1,72 @@
-import React from "react";
+import React from 'react';
 import Comments from '../comments/comments';
 import Popularity from '../popularity/popularity';
-import Title from "../title/title.jsx";
-import Code from "../code/code.jsx";
-import Gallery from "../gallery/gallery.jsx";
-import FullPrice from "../full-price/full-price.jsx";
-import Counter from "../counter/counter.jsx";
-import Description from "../description/description";
-import Button from '../button/button';
+import Title from '../title/title.jsx';
+import Code from '../code/code.jsx';
+import Description from '../description/description';
+import { Image } from '../elements';
+import Tabs from '../tabs/tabs';
 
+import {
+  StyledProductPage,
+  Header,
+  ProductWrapper,
+  ProductInfo,
+  ProductInfoLine,
+  PageCounter,
+  BuyButton,
+  PageFullPrice,
+  DeliveryValue
+} from './styled';
 
-function ProductPage ({ product }) {
+function ProductPage({ product }) {
+  const tabs = [
+    {
+      title: "Описание",
+      content: <Description text={product.description} />
+    },
+    {
+      title: "Комментарии",
+      content: <Comments comments={product.comments} />
+    }
+  ];
+
   return (
-    <section>
-      <Title>{product.name}</Title>
-      <Code>{product.code}</Code>
-      <div style={{ display: "flex" }}>
-        <Gallery src={product.src} alt={product.name} />
+    <StyledProductPage>
+      <Header>
+        <Title>{product.name}</Title>
+        <Code>{product.code}</Code>
+      </Header>
+      <ProductWrapper>
+        <Image
+          width="200"
+          height="257"
+          maxWidth="200"
+          src={product.src}
+          alt={product.name}
+        />
+        <ProductInfo>
+          <ProductInfoLine>
+            Цена:{' '} <PageFullPrice price={product.price} oldPrice={product.oldPrice}/>
+          </ProductInfoLine>
+          <ProductInfoLine>
+            Количество: <PageCounter/>
+          </ProductInfoLine>
 
-        <div>
-          <p>
-            Цена:{" "} <FullPrice price={product.price} oldPrice={product.oldPrice} />
-          </p>
+          <ProductInfoLine>
+            <span>Доставка:</span>{" "}
+            <DeliveryValue>{product.delivery}</DeliveryValue>
+          </ProductInfoLine>
 
-          <div>
-            Количество: <Counter />
-          </div>
+          <BuyButton size="large">Купить</BuyButton>
 
-          <p>
-            <span>Доставка:</span> {product.delivery}
-          </p>
+          <Popularity count={product.comments.length}/>
+        </ProductInfo>
+      </ProductWrapper>
 
-          <Button size="large">Купить</Button>
-
-          <Popularity count={product.comments.length} />
-        </div>
-      </div>
-
-      <Description text={product.description} />
-
-      <Comments comments={product.comments} />
-    </section>
-  )
+      <Tabs tabs={tabs} tabIndex={1} />
+    </StyledProductPage>
+  );
 }
 
 export default ProductPage;
